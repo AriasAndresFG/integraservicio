@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Calificaciones{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <header class="admin-header">
+        <h3><i class="fas fa-star" style="color: var(--primary);"></i> Feedback</h3>
+        <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+    </header>
+
+    <nav class="admin-nav">
+        <a href="/admin/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="/admin/recursos"><i class="fas fa-cubes"></i> Recursos</a>
+        <a href="/admin/reservas"><i class="fas fa-calendar-alt"></i> Reservas</a>
+        <a class="active" href="/admin/calificaciones"><i class="fas fa-star"></i> Calificaciones</a>
+    </nav>
+
+    <h2 style="text-align: left; margin-bottom: 25px;">Opiniones de Usuarios</h2>
+
+    <div class="catalog-grid">
+        {% for c in calificaciones %}
+        <div class="resource-card">
+            
+            <div class="resource-header">
+                <span style="color:#fff">{{ c.usuario }}</span>
+                <span style="color: var(--primary); font-size: 1.1em;">
+                    {{ c.puntuacion }} <i class="fas fa-star"></i>
+                </span>
+            </div>
+
+            <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 10px;">
+                <i class="fas fa-cube" style="color: #444; font-size: 0.8em;"></i> {{ c.recurso }}
+            </h3>
+
+            <div style="position: relative; padding-left: 15px; border-left: 2px solid var(--primary);">
+                <p style="font-style: italic; color: #aaa; font-size: 0.95em; line-height: 1.5;">
+                    "{{ c.comentario }}"
+                </p>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

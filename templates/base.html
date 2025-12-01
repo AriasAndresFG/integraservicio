@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}IntegraServicios{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7c94d7df6a.js" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #FFD700;      /* Dorado CoachMe */
+            --primary-dim: #D4B200;
+            --bg-color: #000000;     /* Negro Puro */
+            --card-bg: #111111;      /* Gris muy oscuro */
+            --border-color: #222222;
+            --text-main: #ffffff;
+            --text-muted: #999999;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* --- Tipografía --- */
+        h1, h2, h3 { color: var(--primary); font-weight: 900; letter-spacing: -1px; }
+        
+        a { text-decoration: none; transition: all 0.3s ease; }
+
+        /* --- Componentes Generales --- */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* --- Botones (Estilo CoachMe) --- */
+        .btn-primary, .home-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary);
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover, .home-btn:hover {
+            background: var(--primary-dim);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-light {
+            display: inline-block;
+            padding: 12px 25px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-light:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- Formularios (Inputs oscuros) --- */
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .login-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        /* Efecto de barra superior dorada como en CoachMe */
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--primary);
+            transform: scaleX(0); /* Oculto por defecto, visible en hover si quieres, o fijo */
+            transform: scaleX(1); /* Dejémoslo fijo para estética de login */
+        }
+
+        .login-card:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #000; /* Fondo más oscuro que la tarjeta */
+            border: 1px solid var(--border-color);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.1);
+        }
+
+        /* --- Elementos Visuales --- */
+        .login-icon {
+            font-size: 3em;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            margin: 25px 0;
+            font-size: 0.8em;
+            color: #444;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%; width: 30%; height: 1px; background: #222;
+        }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .register-link {
+            margin-top: 25px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .register-link a { color: var(--primary); font-weight: bold; }
+        .register-link a:hover { text-decoration: underline; }
+
+        /* --- Home Específico --- */
+        .home-hero img { filter: brightness(0) invert(1); opacity: 0.8; } /* Logo blanco */
+        .home-title { font-size: 3.5em; margin-bottom: 10px; line-height: 1.1; }
+        .home-sub { color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px; }
+        .home-desc { color: #ccc; font-size: 1.1em; line-height: 1.6; max-width: 600px; margin: 0 auto 30px auto; }
+
+        /* --- Estilos del Panel Admin --- */
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            color: #ff4444;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        .logout-btn:hover { text-decoration: underline; }
+
+        /* Navegación de pestañas */
+        .admin-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .admin-nav a {
+            padding: 10px 20px;
+            color: var(--text-muted);
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .admin-nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-nav a.active {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Grids y Tarjetas */
+        .catalog-grid, .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card, .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .resource-card:hover, .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Detalles de Tarjetas */
+        .resource-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .resource-tag { color: var(--primary); font-weight: bold; }
+
+        /* Dashboard Stats */
+        .stat-card { text-align: center; }
+        .stat-card i { font-size: 2.5em; color: var(--text-muted); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 2.5em; color: var(--primary); margin: 10px 0; }
+        .stat-card:hover i { color: var(--primary); }
+
+
+        /* --- Estilos Específicos de Usuario --- */
+
+        /* Cabecera unificada */
+        .user-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .user-profile-pill {
+            background: #222;
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #333;
+        }
+
+        /* Barra de Búsqueda */
+        .search-container {
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 15px 15px 45px; /* Espacio para el icono */
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Estado de Disponibilidad */
+        .status-badge {
+            font-size: 0.8em;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-available { color: #4effaa; background: rgba(78, 255, 170, 0.1); }
+        .status-busy { color: #ff4e4e; background: rgba(255, 78, 78, 0.1); }
+
+    </style>
+</head>
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

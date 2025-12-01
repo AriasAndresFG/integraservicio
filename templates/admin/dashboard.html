@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Panel Administrativo{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+    <header class="admin-header">
+        <h3><i class="fas fa-tools" style="color: var(--primary);"></i> Panel de Control</h3>
+        <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+    </header>
+
+    <nav class="admin-nav">
+        <a class="active" href="/admin/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="/admin/recursos"><i class="fas fa-cubes"></i> Recursos</a>
+        <a href="/admin/reservas"><i class="fas fa-calendar-alt"></i> Reservas</a>
+        <a href="/admin/calificaciones"><i class="fas fa-star"></i> Calificaciones</a>
+    </nav>
+
+    <section>
+        <h2 style="text-align: left; margin-bottom: 25px; border-left: 4px solid var(--primary); padding-left: 15px;">
+            Resumen General
+        </h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-cubes"></i>
+                <h3>{{ total_recursos }}</h3>
+                <p>Recursos Totales</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3>{{ reservas_activas }}</h3>
+                <p>Reservas Activas</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>{{ reservas_completadas }}</h3>
+                <p>Histórico Completado</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>{{ calificacion_promedio }}</h3>
+                <p>Satisfacción Global</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

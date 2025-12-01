@@ -1,0 +1,293 @@
+/* -----------------------------------
+   RESET Y BASE
+----------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+/* Dorado base */
+:root {
+    --gold: #FFD700;
+    --gold-dark: #C9A400;
+    --gray-dark: #111;
+    --gray-mid: #222;
+    --gray-light: #777;
+}
+
+/* -----------------------------------
+   HOME
+----------------------------------- */
+
+.home-hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.home-title {
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.home-sub {
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.home-desc {
+    max-width: 700px;
+    margin: 20px auto;
+    color: #aaa;
+    font-size: 1.2em;
+}
+
+.home-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 40px;
+    background: var(--gold);
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background: var(--gold-dark);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* -----------------------------------
+   LOGIN + REGISTER CARD
+----------------------------------- */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+.login-card {
+    background: var(--gray-dark);
+    border: 1px solid var(--gray-mid);
+    width: 420px;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.login-icon i {
+    font-size: 4em;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.login-card h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.login-sub {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.login-card form {
+    text-align: left;
+}
+
+.login-card label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* Buttons */
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: var(--gold);
+    color: #000;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+.btn-primary:hover {
+    background: var(--gold-dark);
+}
+
+.btn-light {
+    display: block;
+    padding: 10px;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-light:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.divider {
+    color: #aaa;
+    margin: 25px 0;
+    font-size: 0.8em;
+}
+
+.register-link {
+    color: #777;
+    margin-top: 20px;
+}
+
+/* -----------------------------------
+   HEADER USER / ADMIN
+----------------------------------- */
+
+.user-header, .admin-header {
+    background: #111;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--gold);
+}
+
+.logout-btn {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logout-btn:hover {
+    color: #fff;
+}
+
+/* NAV */
+
+.user-nav, .admin-nav {
+    display: flex;
+    background: #0a0a0a;
+    border-bottom: 1px solid #222;
+}
+
+.user-nav a, .admin-nav a {
+    padding: 15px 20px;
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.user-nav a.active, .admin-nav a.active {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+}
+
+.user-nav a:hover, .admin-nav a:hover {
+    color: var(--gold);
+}
+
+/* -----------------------------------
+   CATÁLOGO DE RECURSOS
+----------------------------------- */
+
+.catalog-container {
+    padding: 30px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 25px;
+}
+
+.resource-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.resource-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.resource-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.resource-tag {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.resource-status {
+    font-size: 0.9em;
+}
+
+.resource-status.disponible {
+    color: #4cff4c;
+}
+
+/* -----------------------------------
+   DASHBOARD ADMIN CARDS
+----------------------------------- */
+
+.stats-grid {
+    padding: 40px;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.stat-card {
+    background: #111;
+    border: 1px solid var(--gold);
+    padding: 25px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: var(--gold);
+    font-size: 2em;
+}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-card">
+        <div class="login-icon">
+            <i class="fas fa-id-card"></i>
+        </div>
+
+        <h2>Crear Cuenta</h2>
+        <p style="color: #666; margin-bottom: 30px;">Registro de nuevos usuarios</p>
+
+        <form>
+            <label>Nombre Completo</label>
+            <input type="text" placeholder="Ej. Juan Pérez" required>
+
+            <label>Email Institucional</label>
+            <input type="email" placeholder="@ucentral.edu.co" required>
+
+            <label>Contraseña</label>
+            <input type="password" placeholder="Crear contraseña segura" required>
+
+            <button class="btn-primary" style="width: 100%; margin-top: 30px;">
+                Registrarse
+            </button>
+        </form>
+
+        <p class="register-link">
+            ¿Ya tienes acceso?
+            <a href="/login">Inicia sesión aquí</a>
+        </p>
+    </div>
+
+</div>
+
+{% endblock %}

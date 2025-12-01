@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Inicio - Lazarus{% endblock %}
+
+{% block content %}
+
+<div class="container home-hero">
+
+    <!-- LOGO -->
+    <img src="/static/img/logo.png" alt="Logo Lazarus" style="width:140px; margin-bottom:20px;">
+
+    <h1 class="home-title">
+        <i class="fas fa-university" style="font-size: 0.8em; opacity: 0.6;"></i> LAZARUS
+    </h1>
+
+    <p class="home-sub">Plataforma de Reserva de Recursos</p>
+
+    <div style="width: 60px; height: 3px; background: var(--primary); margin: 0 auto 30px auto;"></div>
+
+    <p class="home-desc">
+        Sistema de gestión institucional. Reserva salones, laboratorios, canchas, auditorios y equipos 
+        de manera fácil, rápida y segura.
+    </p>
+
+    <a href="/login" class="home-btn">
+        <i class="fas fa-sign-in-alt"></i> Acceder al Portal
+    </a>
+
+</div>
+
+{% endblock %}
