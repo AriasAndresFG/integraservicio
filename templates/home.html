@@ -3,9 +3,47 @@
 
 {% block content %}
 
+<style>
+    /* Estilos adicionales para la visualización de recursos */
+    .resource-preview {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        /* Reducimos el margen superior y añadimos más abajo para separarlo del contenido principal */
+        margin: 50px auto 0 auto; 
+        padding: 30px 0 0 0; /* Un poco de padding arriba si deseas un separador */
+        border-top: 1px solid #333; /* Opcional: separador visual */
+    }
+
+    .resource-preview-item {
+        font-size: 2.5em; /* Tamaño grande para el emoji */
+        padding: 15px;
+        border: 2px solid var(--primary); /* Usando el color de acento */
+        background: #0C0C0C; /* Fondo oscuro sutil */
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+
+    .resource-preview-item:hover {
+        transform: scale(1.1); /* Efecto visual al pasar el ratón */
+    }
+
+    /* Adaptación móvil */
+    @media (max-width: 600px) {
+        .resource-preview {
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .resource-preview-item {
+            font-size: 2em;
+            padding: 10px;
+        }
+    }
+</style>
+
 <div class="container home-hero">
 
-    <img src="/static/img/logo.png" alt="Logo Lazarus" style="width:140px; margin-bottom:20px;">
+    <img src="/static/img/logo.png" alt="Logo Lazarus" style="width:200px; margin-bottom:20px;">
 
     <h1 class="home-title">
         <span style="font-size: 0.8em; opacity: 0.8; margin-right: 10px;">🎓</span> LAZARUS
@@ -23,6 +61,13 @@
     <a href="/login" class="home-btn">
         <span style="margin-right: 8px;">📝</span> Acceder al Portal
     </a>
+    
+    <div class="resource-preview">
+        <div class="resource-preview-item" title="Salones de Clase">🧑‍🏫</div>
+        <div class="resource-preview-item" title="Laboratorios">🔬</div>
+        <div class="resource-preview-item" title="Canchas y Deportes">⚽</div>
+        <div class="resource-preview-item" title="Auditorios y Eventos">🎙️</div>
+    </div>
 
 </div>
 
