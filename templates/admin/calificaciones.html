@@ -6,15 +6,15 @@
 <div class="container">
 
     <header class="admin-header">
-        <h3><i class="fas fa-star" style="color: var(--primary);"></i> Feedback</h3>
-        <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        <h3 style="color: var(--primary);"><span style="margin-right: 5px;">⭐</span> Feedback</h3>
+        <a href="/logout" class="logout-btn"><span style="margin-right: 5px;">🚪</span> Cerrar Sesión</a>
     </header>
 
     <nav class="admin-nav">
-        <a href="/admin/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a>
-        <a href="/admin/recursos"><i class="fas fa-cubes"></i> Recursos</a>
-        <a href="/admin/reservas"><i class="fas fa-calendar-alt"></i> Reservas</a>
-        <a class="active" href="/admin/calificaciones"><i class="fas fa-star"></i> Calificaciones</a>
+        <a href="/admin/dashboard"><span style="margin-right: 5px;">📈</span> Dashboard</a>
+        <a href="/admin/recursos"><span style="margin-right: 5px;">📦</span> Recursos</a>
+        <a href="/admin/reservas"><span style="margin-right: 5px;">🗓️</span> Reservas</a>
+        <a class="active" href="/admin/calificaciones"><span style="margin-right: 5px;">⭐</span> Calificaciones</a>
     </nav>
 
     <h2 style="text-align: left; margin-bottom: 25px;">Opiniones de Usuarios</h2>
@@ -26,12 +26,12 @@
             <div class="resource-header">
                 <span style="color:#fff">{{ c.usuario }}</span>
                 <span style="color: var(--primary); font-size: 1.1em;">
-                    {{ c.puntuacion }} <i class="fas fa-star"></i>
+                    {{ c.puntuacion }} <span style="margin-left: 3px;">⭐</span>
                 </span>
             </div>
 
             <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 10px;">
-                <i class="fas fa-cube" style="color: #444; font-size: 0.8em;"></i> {{ c.recurso }}
+                <span style="color: #444; font-size: 0.8em; margin-right: 5px;">🏷️</span> {{ c.recurso }}
             </h3>
 
             <div style="position: relative; padding-left: 15px; border-left: 2px solid var(--primary);">

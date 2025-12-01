@@ -6,21 +6,21 @@
 <div class="container">
 
     <header class="admin-header">
-        <h3><i class="fas fa-cubes" style="color: var(--primary);"></i> Inventario</h3>
-        <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        <h3 style="color: var(--primary);"><span style="margin-right: 5px;">📦</span> Inventario</h3>
+        <a href="/logout" class="logout-btn"><span style="margin-right: 5px;">🚪</span> Cerrar Sesión</a>
     </header>
 
     <nav class="admin-nav">
-        <a href="/admin/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a>
-        <a class="active" href="/admin/recursos"><i class="fas fa-cubes"></i> Recursos</a>
-        <a href="/admin/reservas"><i class="fas fa-calendar-alt"></i> Reservas</a>
-        <a href="/admin/calificaciones"><i class="fas fa-star"></i> Calificaciones</a>
+        <a href="/admin/dashboard"><span style="margin-right: 5px;">📈</span> Dashboard</a>
+        <a class="active" href="/admin/recursos"><span style="margin-right: 5px;">📦</span> Recursos</a>
+        <a href="/admin/reservas"><span style="margin-right: 5px;">🗓️</span> Reservas</a>
+        <a href="/admin/calificaciones"><span style="margin-right: 5px;">⭐</span> Calificaciones</a>
     </nav>
 
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 30px;">
         <h2 style="text-align: left; margin:0;">Listado de Recursos</h2>
         <button class="btn-primary" style="margin:0; padding: 10px 20px;">
-            <i class="fas fa-plus"></i> Nuevo
+            <span style="margin-right: 5px;">➕</span> Nuevo
         </button>
     </div>
 
@@ -28,7 +28,7 @@
         {% for r in recursos %}
         <div class="resource-card">
             <div class="resource-header">
-                <span class="resource-tag"><i class="fas fa-tag"></i> {{ r.tipo }}</span>
+                <span class="resource-tag"><span style="margin-right: 5px;">🏷️</span> {{ r.tipo }}</span>
                 <span>ID: #{{ r.id }}</span>
             </div>
 
@@ -39,13 +39,13 @@
             </p>
             
             <div style="border-top: 1px solid #222; padding-top: 15px; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9em;">
-                <i class="fas fa-users"></i> Capacidad: <span style="color:#fff">{{ r.capacidad }} personas</span>
+                <span style="margin-right: 5px;">👥</span> Capacidad: <span style="color:#fff">{{ r.capacidad }} personas</span>
             </div>
 
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                <button class="btn-light" style="width:100%"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn-light" style="width:100%"><span style="margin-right: 5px;">✏️</span> Editar</button>
                 <button class="btn-light" style="width:100%; border-color: #551111; color: #ff5555;">
-                    <i class="fas fa-trash"></i> Eliminar
+                    <span style="margin-right: 5px;">🗑️</span> Eliminar
                 </button>
             </div>
         </div>
